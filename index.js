@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // Routes to our bookRoute script
-app.use(bookRoute);
+app.use("/books", bookRoute);
 
 // GET reuquest to /, serves html page
 app.get("/", (req, res) => {
@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 
 // catch all for all unhandled routes
 app.get("*", (req, res) => {
-    res.send("not a valid route! try /animals or /animals/:id!");
+    res.send("not a valid route! try /books or /books/:id!");
   });
   
 //tells my server where to looks for requests
